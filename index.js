@@ -28,8 +28,7 @@ function read(file) {
   console.log("file name is:" + fileName)
   fs.readFile(directory_nameOut+fileName, 'utf8' , async (err, data) => {
     if (err) {
-      console.error(err)
-      return
+      return console.error(err)
     }
     let svgJson = await parse(data)
     JSON.stringify(svgJson, null, 2)
