@@ -26,7 +26,7 @@ filenames.forEach((file) => {
 function read(file) {
   let fileName = file
   console.log("file name is:" + fileName)
-  fs.readFile(directory_nameOut+fileName, 'utf8' , async (err, data) => {
+  fs.readFile(directory_nameIn+fileName, 'utf8' , async (err, data) => {
     if (err) {
       return console.error(err)
     }
