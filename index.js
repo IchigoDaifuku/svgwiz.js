@@ -3,10 +3,11 @@ const fs = require("fs");
 const { parse, stringify } = require('svgson')
 const process = require('process');
 fileArray = []
-var directory_name = "./files"; 
+var directory_nameIn = "./files-in/";
+var directory_nameOut = "./files-out/"; 
 colour = ["#6a0dad", "purple-"]
 
-let filenames = fs.readdirSync(directory_name+"-in"); 
+let filenames = fs.readdirSync(directory_nameIn); 
 
 
 nextFile()
@@ -25,7 +26,7 @@ filenames.forEach((file) => {
 function read(x) {
   let fileName = x
   console.log("file name is:" + fileName)
-  fs.readFile(directory_name+"-in/"+x, 'utf8' , async (err, data) => {
+  fs.readFile(directory_nameOut+x, 'utf8' , async (err, data) => {
     if (err) {
       console.error(err)
       return
@@ -40,7 +41,7 @@ function read(x) {
 function writeTo(svgJson, fileName) {
   svgJson.attributes.stroke = colour[0]
   let fileToSave = stringify(svgJson)
-  fs.writeFile(directory_name+"-out/"+colour[1]+fileName, fileToSave, function(err,data) {
+  fs.writeFile(directory_nameOut+colour[1]+fileName, fileToSave, function(err,data) {
   fileArray.push(fileName)
     if (err) {
       return console.log(err);
