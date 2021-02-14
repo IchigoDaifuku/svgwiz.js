@@ -12,10 +12,9 @@ let filenames = fs.readdirSync(directory_nameIn);
 
 discoverFiles()
 function discoverFiles() {
-console.log("\nFilenames in directory:"); 
 filenames.forEach((file) => { 
   if (fileArray.includes(file)) {
-    console.log("finished")
+    console.log("finished or terminated")
     process.exit(0);
   }
   return read(file);
@@ -25,7 +24,7 @@ filenames.forEach((file) => {
 
 function read(file) {
   let fileName = file
-  console.log("file name is:" + fileName)
+  console.log("Discovered:" + fileName)
   fs.readFile(directory_nameIn+fileName, 'utf8' , async (err, data) => {
     if (err) {
       return console.error(err)
