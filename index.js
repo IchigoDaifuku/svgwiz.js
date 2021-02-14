@@ -10,8 +10,8 @@ colour = ["#6a0dad", "purple-"]
 let filenames = fs.readdirSync(directory_nameIn); 
 
 
-start()
-function start() {
+discoverFiles()
+function discoverFiles() {
 console.log("\nFilenames in directory:"); 
 filenames.forEach((file) => { 
   if (fileArray.includes(file)) {
@@ -45,6 +45,6 @@ function writeTo(svgJson, fileName) {
     if (err) {
       return console.log(err);
     }
-    start()
+    discoverFiles()
   });
 }
