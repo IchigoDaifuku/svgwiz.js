@@ -10,8 +10,8 @@ colour = ["#6a0dad", "purple-"]
 let filenames = fs.readdirSync(directory_nameIn); 
 
 
-nextFile()
-function nextFile() {
+start()
+function start() {
 console.log("\nFilenames in directory:"); 
 filenames.forEach((file) => { 
   if (fileArray.includes(file)) {
@@ -23,10 +23,10 @@ filenames.forEach((file) => {
 }
 
 
-function read(x) {
-  let fileName = x
+function read(file) {
+  let fileName = file
   console.log("file name is:" + fileName)
-  fs.readFile(directory_nameOut+x, 'utf8' , async (err, data) => {
+  fs.readFile(directory_nameOut+fileName, 'utf8' , async (err, data) => {
     if (err) {
       console.error(err)
       return
@@ -46,6 +46,6 @@ function writeTo(svgJson, fileName) {
     if (err) {
       return console.log(err);
     }
-    nextFile()
+    start()
   });
 }
